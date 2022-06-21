@@ -40,7 +40,7 @@ func keys(c *cli.Context) {
 		decoder := decoder.NewDecoder()
 		go dump.Decode(c, decoder, filepath)
 		for e := range decoder.Entries {
-			fmt.Fprintf(c.App.Writer, "%v\n", e.Key)
+			fmt.Fprintf(c.App.Writer, "%v\t%v\n", e.Key, e.Bytes)
 		}
 	}
 }
